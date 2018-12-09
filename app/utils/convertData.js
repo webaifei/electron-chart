@@ -17,7 +17,7 @@ export default function convertData (arr) {
     };
     if(Array.isArray(arr)) {
         const filterArr = arr.filter((item)=> item["统计日期"] !== "合计");
-        
+
         filterArr.reverse().forEach(item=> {
             ret.PV.data.push(item["首页pv"]);
             ret.UV.data.push(item["首页uv"]);

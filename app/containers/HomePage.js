@@ -31,6 +31,7 @@ const styles = (theme)=> ({
   }
 });
 class Home extends React.Component {
+  myChart = null;
   state = {
     open: true,
     applyCardData: setApplyCardData(handledData)
@@ -39,17 +40,26 @@ class Home extends React.Component {
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
-
+  changeType() {
+    const {applyCardData} = this.state;
+    console.log(applyCardData);
+    applyCardData.series.forEach(item=> {
+      item.type = 'bar';
+    })
+    console.log(applyCardData);
+    this.myChart.setOption(applyCardData);
+  };
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
   componentDidMount() {
     const containerRef = this.refs['echart-container'];
-    console.log(containerRef);
-    // this.bindEvent();
-    const myChart = echarts.init(containerRef);
+    const myChart = this.myChart = echarts.init(containerRef);
     console.log(this.state.applyCardData)
     myChart.setOption(this.state.applyCardData);
+    setTimeout(()=> {
+      this.changeType();
+    }, 3000)
   }
   render() {
     const { classes } = this.props;
