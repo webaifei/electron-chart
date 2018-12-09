@@ -1,4 +1,40 @@
+### 主要功能
+1. 两个页面的PV UV
+2. 会员
+> 新增用户数-> 付费会员数 区分等级
+> 邀请办卡
+3. 办卡
+> 注册用户数 -> 申请卡
+4. 事件点击
 
+几个数据指标
+1. 代理推广积极性
+```
+--分享
+  --微信分享
+  --海报
+  --复制链接
+
+--会员升级情况
+  --普通会员
+  --白金会员
+  --钻石会员
+```
+2. 办卡用户
+```
+--新增用户（讲道理应该是实习会员）
+--申卡
+-- 当日合卡
+```
+
+### 注意事项
+1. 安装electron 慢的解决方案
+```
+// 切换npm源为淘宝
+registry=https://registry.npm.taobao.org/
+//在.npmrc中添加下面的代码 
+ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+## install 
 ```bash
 $ cd your-project-name
 $ yarn
